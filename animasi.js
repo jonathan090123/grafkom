@@ -470,6 +470,13 @@ function main() {
     var telinga_kanan = new MyObject(sphere(2.8, 4, 0.2, 0.6, 0.8, 0.5, 100, 100, 0.25098039215686274, 0.611764705882353, 0.10980392156862745).vertex, sphere(0, 0, 0, 3, 3, 3, 100, 100, 1, 1, 1).indices, shader_vertex_source, shader_fragment_source);
     telinga_kanan.setup();
 
+    var alisBabiKanan = new MyObject(createCuboidVertices(2, 2.3, 3.7, 1.2, 1, 0.4,     0, 0, 0), createCuboidIndices(), shader_vertex_source, shader_fragment_source);
+    alisBabiKanan.setup();
+
+    var alisBabiKiri = new MyObject(createCuboidVertices(-3.5, 2.3, 3.7,  1.2, 1, 0.4,    0, 0, 0), createCuboidIndices(), shader_vertex_source, shader_fragment_source);
+    alisBabiKiri.setup();
+  
+
     absis = [
         -2, -1.5, 4.4, 0.25098039215686274, 0.611764705882353, 0.10980392156862745,
         0, -3.5, 3.5, 0.25098039215686274, 0.611764705882353, 0.10980392156862745,
@@ -492,6 +499,8 @@ function main() {
     babi.child.push(smile);
     babi.child.push(telinga_kiri);
     babi.child.push(telinga_kanan);
+    babi.child.push(alisBabiKanan);
+    babi.child.push(alisBabiKiri);
 
     //============KUNING=============
     var bodikuning = new MyObject(ElipticParaboloid(1, 64, 64, 0, 6, -4, 1, 1, 0).vertices, ElipticParaboloid(1, 64, 64, 0, 0, 0, 1, 1, 0).indices, shader_vertex_source, shader_fragment_source);
@@ -626,6 +635,15 @@ function main() {
     burungBiruMataKiriPupil.setup();
     burungBiruBody.child.push(burungBiruMataKiriPupil);
 
+
+    var alisBiruKanan = new MyObject(createCuboidVertices(0.5, 1.1, 3.7, 1.2, 1, 0.4,     0.075, 0.286, 0.659), createCuboidIndices(), shader_vertex_source, shader_fragment_source);
+    alisBiruKanan.setup();
+    burungBiruBody.child.push(alisBiruKanan);
+ 
+    var alisBiruKiri = new MyObject(createCuboidVertices(-1.6, 1.1, 3.7,  1.2, 1, 0.4,    0.075, 0.286, 0.659), createCuboidIndices(), shader_vertex_source, shader_fragment_source);
+    alisBiruKiri.setup();
+    burungBiruBody.child.push(alisBiruKiri);
+
     // 0.15, 64, 64, 0, -1.2, 3.3, 0.7, 0.7, 0
     var burungBiruParuh = new MyObject(buatConeVertices(0, -2, 3.7, 0, -1.2, 2, 0.8, 0.902, 0.792, 0.376), buatConeIndices(), shader_vertex_source, shader_fragment_source);
     burungBiruParuh.setup();
@@ -697,16 +715,6 @@ function main() {
 
 
 
-
-
-
-
-
-
-
-
-
-
     //ANIMATE
     GL.clearColor(0, 1, 1, 0.5);
 
@@ -765,6 +773,8 @@ function main() {
         smile.MODEL_MATRIX = BABI_MODEL_MATRIX;
         telinga_kiri.MODEL_MATRIX = BABI_MODEL_MATRIX;
         telinga_kanan.MODEL_MATRIX = BABI_MODEL_MATRIX;
+        alisBabiKanan.MODEL_MATRIX = BABI_MODEL_MATRIX;
+        alisBabiKiri.MODEL_MATRIX = BABI_MODEL_MATRIX;
 
 
         //KUNING
@@ -808,6 +818,8 @@ function main() {
         burungBiruJambul.MODEL_MATRIX = BIRU_MODEL_MATRIX;
         burungBiruJambul1.MODEL_MATRIX = BIRU_MODEL_MATRIX;
         burungBiruJambul2.MODEL_MATRIX = BIRU_MODEL_MATRIX;
+        alisBiruKiri.MODEL_MATRIX = BIRU_MODEL_MATRIX;
+        alisBiruKanan.MODEL_MATRIX = BIRU_MODEL_MATRIX;
 
         //cameramove
         // Handle keyboard input
